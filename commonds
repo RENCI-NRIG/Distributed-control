@@ -1,0 +1,16 @@
+cd /home/haoqi/Closedloop/closedLoop
+
+g++ -I. PronyADMM_Server.cpp Prony_common.cpp Prony_common.h rpoly.cpp -o PronyADMM_Server -O2 -larmadillo -pthread
+
+g++ -I. PronyADMM_Client1.cpp Prony_common.cpp Prony_common.h rpoly.cpp -o PronyADMM_Client1 -O2 -larmadillo -pthread
+
+g++ -I. PronyADMM_Client2.cpp Prony_common.cpp Prony_common.h rpoly.cpp -o PronyADMM_Client2 -O2 -larmadillo -pthread
+
+g++ -I. PronyADMM_Client3.cpp Prony_common.cpp Prony_common.h rpoly.cpp -o PronyADMM_Client3 -O2 -larmadillo -pthread
+
+g++ -I. PronyADMM_Client4.cpp Prony_common.cpp Prony_common.h rpoly.cpp -o PronyADMM_Client4 -O2 -larmadillo -pthread
+./PronyADMM_Server 4 8880
+./PronyADMM_Client1 3 152.54.14.57 8880 8881
+./PronyADMM_Client2 2 152.54.14.57 8880 152.54.14.55 8881 8882
+./PronyADMM_Client3 1 152.54.14.57 8880 152.54.14.55 8881 152.54.14.56 8882 8883
+./PronyADMM_Client4 152.54.14.57 8880 152.54.14.55 8881 152.54.14.56 8882 152.54.14.49 8883
